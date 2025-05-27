@@ -17,13 +17,13 @@ service:
 
 env:
   - name: VITE_NAVER_CLIENT_ID
-    value: __VITE_NAVER_CLIENT_ID__
+    value: avCowJdnr6vGSMChndkD
   - name: VITE_NAVER_REDIRECT_URI
-    value: __VITE_NAVER_REDIRECT_URI__
+    value: http://localhost:8080/login/oauth2/redirect
   - name: VITE_IMP_CODE
-    value: __VITE_IMP_CODE__
+    value: imp18800044
   - name: VITE_CHANNEL_KEY
-    value: __VITE_CHANNEL_KEY__
+    value: channel-key-c1a1895a-5dfc-41e0-b333-25fc99b11ad8
 
 ingress:
   host: himedia-b.com
