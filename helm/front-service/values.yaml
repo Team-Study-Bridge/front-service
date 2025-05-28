@@ -2,7 +2,7 @@ replicaCount: 1 # HPA 안 쓸 경우 수동 복제 수 지정
 
 image:
   repository: 879381276515.dkr.ecr.ap-northeast-2.amazonaws.com/aigongbu/service-images
-  tag: e2e02f8cca30a1efd790b2f29fa5d5bbac9fb0d1
+  tag: e98b86253b0cc01bcf77d165e167d9253fd12e35
   pullPolicy: IfNotPresent
 
 containerPort: 80
