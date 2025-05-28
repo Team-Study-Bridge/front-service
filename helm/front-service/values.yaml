@@ -3,7 +3,7 @@ name: front
 
 image:
   repository: 879381276515.dkr.ecr.ap-northeast-2.amazonaws.com/polar-msa-ecr
-  tag: 16f73a529f3135acbab8e885f929a8886db7101d
+  tag: 1eb3a5cc4b7567a0506990ce1f45d1a98981ba36
   pullPolicy: IfNotPresent
 
 containerPort: 80
