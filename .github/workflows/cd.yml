@@ -7,7 +7,7 @@ on:
 
 env:
   AWS_REGION: ap-northeast-2
-  ECR_REPOSITORY: aigongbu/service-images
+  ECR_REPOSITORY: polar-msa-ecr
   IMAGE_TAG: ${{ github.sha }}
   SERVICE_NAME: front-service
   HELM_PATH: helm/front-service/values.yaml
