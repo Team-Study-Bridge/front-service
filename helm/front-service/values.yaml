@@ -1,5 +1,3 @@
-name: front-service
-
 replicaCount: 1 # HPA 안 쓸 경우 수동 복제 수 지정
 
 image:
@@ -25,8 +23,8 @@ env:
   - name: VITE_CHANNEL_KEY
     value: channel-key-c1a1895a-5dfc-41e0-b333-25fc99b11ad8
 
-ingress:
-  host: himedia-b.com
-  subnets: subnet-00acc7c6377ef0998,subnet-0f0d4b7b414076b7b
-  securityGroups: sg-024be808dcf48c86b
-  certificateArn: arn:aws:acm:ap-northeast-2:879381276515:certificate/0dfd4e12-fcd9-4697-b202-d7093d86e8ca
+#ingress:
+#  host: himedia-b.com
+#  subnets: subnet-0eba9bf4fcf915e31,subnet-08657494f4c5ea751
+#  securityGroups: sg-08d728ccd2317bf35
+#  certificateArn: arn:aws:acm:ap-northeast-2:879381276515:certificate/0dfd4e12-fcd9-4697-b202-d7093d86e8ca

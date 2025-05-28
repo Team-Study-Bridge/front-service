@@ -1,36 +1,36 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: front-ingress
-  namespace: default
-  annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80, "HTTPS": 443}]'
-    alb.ingress.kubernetes.io/group.name: frontend
-    alb.ingress.kubernetes.io/load-balancer-name: front-alb
-    alb.ingress.kubernetes.io/backend-protocol: HTTP
-    alb.ingress.kubernetes.io/healthcheck-path: /
-    alb.ingress.kubernetes.io/subnets: {{ .Values.ingress.subnets }}
-    alb.ingress.kubernetes.io/security-groups: {{ .Values.ingress.securityGroups }}
+{{/*apiVersion: networking.k8s.io/v1*/}}
+{{/*kind: Ingress*/}}
+{{/*metadata:*/}}
+{{/*  name: front-ingress*/}}
+{{/*  namespace: default*/}}
+{{/*  annotations:*/}}
+{{/*    alb.ingress.kubernetes.io/scheme: internet-facing*/}}
+{{/*    alb.ingress.kubernetes.io/target-type: ip*/}}
+{{/*    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80, "HTTPS": 443}]'*/}}
+{{/*    alb.ingress.kubernetes.io/group.name: frontend*/}}
+{{/*    alb.ingress.kubernetes.io/load-balancer-name: front-alb*/}}
+{{/*    alb.ingress.kubernetes.io/backend-protocol: HTTP*/}}
+{{/*    alb.ingress.kubernetes.io/healthcheck-path: /*/}}
+{{/*    alb.ingress.kubernetes.io/subnets: {{ .Values.ingress.subnets }}*/}}
+{{/*    alb.ingress.kubernetes.io/security-groups: {{ .Values.ingress.securityGroups }}*/}}
 
-    # HTTPS 적용에 필요한 주석
-    alb.ingress.kubernetes.io/certificate-arn: {{ .Values.ingress.certificateArn }}
-    alb.ingress.kubernetes.io/ssl-redirect: "443"
-spec:
-  ingressClassName: alb
-  rules:
-    - host: {{ .Values.ingress.host }}
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: front-service
-                port:
-                  number: {{ .Values.service.port }}
-  tls:
-    - hosts:
-        - {{ .Values.ingress.host }}
-      secretName: dummy-cert # 필수 아님. ACM 인증서이므로 dummy 값 사용 가능
+{{/*    # HTTPS 적용에 필요한 주석*/}}
+{{/*    alb.ingress.kubernetes.io/certificate-arn: {{ .Values.ingress.certificateArn }}*/}}
+{{/*    alb.ingress.kubernetes.io/ssl-redirect: "443"*/}}
+{{/*spec:*/}}
+{{/*  ingressClassName: alb*/}}
+{{/*  rules:*/}}
+{{/*    - host: {{ .Values.ingress.host }}*/}}
+{{/*      http:*/}}
+{{/*        paths:*/}}
+{{/*          - path: /*/}}
+{{/*            pathType: Prefix*/}}
+{{/*            backend:*/}}
+{{/*              service:*/}}
+{{/*                name: front-service*/}}
+{{/*                port:*/}}
+{{/*                  number: {{ .Values.service.port }}*/}}
+{{/*  tls:*/}}
+{{/*    - hosts:*/}}
+{{/*        - {{ .Values.ingress.host }}*/}}
+{{/*      secretName: dummy-cert # 필수 아님. ACM 인증서이므로 dummy 값 사용 가능*/}}
