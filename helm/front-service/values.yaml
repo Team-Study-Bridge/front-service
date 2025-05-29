@@ -7,7 +7,7 @@ nodeSelector:
 
 image:
   repository: 879381276515.dkr.ecr.ap-northeast-2.amazonaws.com/aigongbu/service-images
-  tag: 99cd7645cd60853fe58657b7ed156a2880a21397
+  tag: 813976375c1fe2ce15dc535fa5a7ae65636c347c
   pullPolicy: IfNotPresent
 
 containerPort: 80
