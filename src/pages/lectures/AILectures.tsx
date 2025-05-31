@@ -280,7 +280,7 @@ const AILectures: React.FC = () => {
     const query = new URLSearchParams({
       token: accessToken,
       user_id: String(userId),
-      ...(sessionId ? { session_id: sessionId } : {}),
+      ...(sessionId ? { session_id: sessionId } : {})
     });
 
     // WebSocket URL 생성
@@ -315,7 +315,7 @@ const AILectures: React.FC = () => {
             case "chat":
               messagesRef.current.push({
                 role: "assistant",
-                content: String(msg.summary).replace(/^요약[:：]?\s*/i, "").trim(),
+                content: String(msg.summary).replace(/^요약[:：]?\s*/i, "").trim()
               });
               break;
 
@@ -327,7 +327,7 @@ const AILectures: React.FC = () => {
               console.error("[WebSocket ERROR]:", msg.message);
               messagesRef.current.push({
                 role: "system",
-                content: "아이공 분석 실패: 잠시 후 다시 시도해주세요.",
+                content: "아이공 분석 실패: 잠시 후 다시 시도해주세요."
               });
               break;
 
@@ -398,7 +398,7 @@ const AILectures: React.FC = () => {
           language: "en",
           include_code: true,
           summary_only: false,
-          documents: [],
+          documents: []
         })
     );
 
@@ -422,14 +422,14 @@ const AILectures: React.FC = () => {
             language: "en",
             include_code: true,
             summary_only: false,
-            documents: [],
+            documents: []
           })
       );
     } catch (err) {
       console.error("WebSocket 메시지 처리 실패:", err);
       messagesRef.current.push({
         role: "system",
-        content: "아이공 분석 처리 중 오류 발생: 잠시 후 다시 시도해주세요.",
+        content: "아이공 분석 처리 중 오류 발생: 잠시 후 다시 시도해주세요."
       });
       setChatMessages([...messagesRef.current]);
       setIsProcessing(false);
@@ -464,7 +464,7 @@ const AILectures: React.FC = () => {
         setActiveSession(newSession);
 
         messagesRef.current = [
-          { role: "system", content: "새로운 대화가 시작되었습니다." },
+          { role: "system", content: "새로운 대화가 시작되었습니다." }
         ];
         setChatMessages([...messagesRef.current]);
 
@@ -479,7 +479,7 @@ const AILectures: React.FC = () => {
         toast({
           title: "새 대화 생성됨",
           description: "새로운 대화가 시작되었습니다.",
-          variant: "default",
+          variant: "default"
         });
       }
     } catch (err) {
