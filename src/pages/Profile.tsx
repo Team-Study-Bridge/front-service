@@ -228,9 +228,9 @@ const Profile = () => {
               <div className="flex flex-col md:flex-row">
                 <div className="md:w-1/4">
                   <img
-                    src={`https://api.dicebear.com/7.x/shapes/svg?seed=${course.productId}`}
-                    alt={course.productTitle}
-                    className="h-40 md:h-full w-full object-cover"
+                      src={course.thumbnailUrl || `https://api.dicebear.com/7.x/shapes/svg?seed=${course.productId}`}
+                      alt={course.productTitle}
+                      className="h-40 md:h-full w-full object-cover"
                   />
                 </div>
                 <div className="flex-1 p-4">

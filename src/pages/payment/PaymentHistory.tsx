@@ -12,15 +12,9 @@ import { PaymentItem } from '@/types/payment';
 const PaymentHistory = () => {
   const [payments, setPayments] = useState<PaymentItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isAuthenticated) {
-      toast.error('로그인이 필요한 서비스입니다.');
-      navigate('/login');
-      return;
-    }
 
     const fetchPayments = async () => {
       try {
@@ -35,7 +29,7 @@ const PaymentHistory = () => {
     };
 
     fetchPayments();
-  }, [isAuthenticated, navigate]);
+  }, [navigate]);
 
   const getStatusBadgeClass = (status: string) => {
     switch (status) {

@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import InstructorManagement from '@/components/admin/InstructorManagement';
 import LectureManagement from '@/components/admin/LectureManagement';
+import PaymentManagement from '@/components/admin/PaymentManagement';
 import { toast } from 'sonner';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
@@ -229,18 +230,34 @@ const Admin: React.FC = () => {
           </h1>
 
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="mb-8 w-full max-w-3xl mx-auto">
-              <TabsTrigger value="instructors" className="flex-1" asChild>
-                <Link to="/admin/instructors" className="korean-text w-full">강사 관리</Link>
+            <TabsList className="w-full h-12 bg-white/20 backdrop-blur-sm border-white/20">
+              <TabsTrigger
+                value="instructors"
+                className="flex-1 h-full data-[state=active]:bg-white/50"
+                asChild
+              >
+                <Link to="/admin">강사 관리</Link>
               </TabsTrigger>
-              <TabsTrigger value="lectures" className="flex-1" asChild>
-                <Link to="/admin/lectures" className="korean-text w-full">강의 관리</Link>
+              <TabsTrigger
+                value="lectures"
+                className="flex-1 h-full data-[state=active]:bg-white/50"
+                asChild
+              >
+                <Link to="/admin/lectures">강의 관리</Link>
               </TabsTrigger>
-              <TabsTrigger value="payments" className="flex-1" asChild>
-                <Link to="/admin/payments" className="korean-text w-full">결제 관리</Link>
+              <TabsTrigger
+                value="payments"
+                className="flex-1 h-full data-[state=active]:bg-white/50"
+                asChild
+              >
+                <Link to="/admin/payments">결제 관리</Link>
               </TabsTrigger>
-              <TabsTrigger value="messages" className="flex-1" asChild>
-                <Link to="/admin/messages" className="korean-text w-full">메시지 관리</Link>
+              <TabsTrigger
+                value="messages"
+                className="flex-1 h-full data-[state=active]:bg-white/50"
+                asChild
+              >
+                <Link to="/admin/messages">메시지 발송</Link>
               </TabsTrigger>
             </TabsList>
 
@@ -248,32 +265,7 @@ const Admin: React.FC = () => {
               <Route path="/" element={<Navigate to="instructors" replace />} />
               <Route path="instructors" element={<InstructorManagement />} />
               <Route path="lectures" element={<LectureManagement />} />
-              <Route path="payments" element={
-                <div className="grid gap-6">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <CreditCard className="h-5 w-5" />
-                        결제 관리
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground mb-4">
-                        이 섹션에서는 플랫폼의 모든 결제를 관리할 수 있습니다.
-                      </p>
-                      <div className="grid gap-4">
-                        <Button
-                          variant="outline"
-                          onClick={() => navigate('/payment-history')}
-                          className="w-full md:w-auto"
-                        >
-                          결제 내역 보기
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              } />
+              <Route path="payments" element={<PaymentManagement />} />
               <Route path="messages" element={
                 <div className="grid gap-6 md:grid-cols-2">
                   {/* 왼쪽: 메시지 작성 + 모든 버튼 */}
