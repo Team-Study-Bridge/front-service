@@ -11,7 +11,6 @@ interface UsePaymentProps {
 export const usePayment = ({ lectureId }: UsePaymentProps) => {
   const [isProcessing, setIsProcessing] = useState(false);
   const navigate = useNavigate();
-  const { user } = useAuth();
 
   const processInicisPayment = async (lecture: any) => {
     const IMP = (window as any).IMP;
@@ -44,7 +43,7 @@ export const usePayment = ({ lectureId }: UsePaymentProps) => {
               });
 
               toast.success('결제가 완료되었습니다!');
-               navigate(`/lecture/${lectureId}`);
+              navigate(`/lecture/${lectureId}`, { state: { paymentSuccess: true } });
             } catch (err) {
               console.error('❌ 결제 저장 실패:', err);
               toast.error('결제는 완료되었지만, 서버 저장 중 오류가 발생했습니다.');

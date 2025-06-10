@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@/contexts/AuthContext';
 import { paymentAPI } from '@/api/payment';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -83,7 +82,7 @@ const PaymentHistory = () => {
           {payments.length === 0 ? (
             <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md p-8 text-center">
               <p className="text-ghibli-stone text-lg">결제 내역이 없습니다.</p>
-              <Button 
+              <Button
                 onClick={() => navigate('/dev-courses')}
                 className="mt-4 bg-ghibli-meadow hover:bg-ghibli-forest"
               >
@@ -111,16 +110,16 @@ const PaymentHistory = () => {
                       <div className="flex justify-between items-center">
                         <span className="text-ghibli-stone">상태:</span>
                         <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusBadgeClass(payment.status)}`}>
-                          {payment.status === 'COMPLETED' ? '결제완료' : 
+                          {payment.status === 'COMPLETED' ? '결제완료' :
                            payment.status === 'PENDING' ? '처리중' : '실패'}
                         </span>
                       </div>
                     </div>
                   </CardContent>
                   <CardFooter className="pt-0">
-                    <Button 
+                    <Button
                       onClick={() => navigate(`/lecture/${payment.lectureId}`)}
-                      variant="outline" 
+                      variant="outline"
                       className="w-full"
                     >
                       강의 보기

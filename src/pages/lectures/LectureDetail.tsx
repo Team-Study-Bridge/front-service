@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import {useParams, useNavigate, useLocation} from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -29,6 +29,8 @@ const LectureDetail: React.FC = () => {
   const [reviewRating, setReviewRating] = useState<number>(5);
   const [reviewComment, setReviewComment] = useState('');
   const [isSubmittingReview, setIsSubmittingReview] = useState(false);
+  const location = useLocation();
+  const paymentSuccess = location.state?.paymentSuccess;
 
   useEffect(() => {
     const fetchLecture = async () => {
@@ -55,7 +57,7 @@ const LectureDetail: React.FC = () => {
     };
 
     fetchLecture();
-  }, [lectureId, user]);
+  }, [lectureId, user, paymentSuccess]);
 
   const toggleBookmark = () => {
     setIsBookmarked((prev) => !prev);

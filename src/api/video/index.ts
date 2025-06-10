@@ -4,7 +4,7 @@ import API from '@/utils/apiClient';
 export const videoAPI = {
   // 비디오 스트리밍 URL 직접 구성해서 반환
   getVideoStreamUrl: (lectureId: number) => {
-    const proxyUrl = `http://aigongbu.store/lectures/video/${lectureId}/stream`;
+    const proxyUrl = `http://localhost:9000/lectures/video/${lectureId}/stream`;
     return Promise.resolve({
       data: {
         url: proxyUrl

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {useNavigate, useParams} from 'react-router-dom';
 import Header from '@/components/Header';
-import { toast } from 'sonner';
-import { useAuth } from '@/contexts/AuthContext';
+import {toast} from 'sonner';
+import {useAuth} from '@/contexts/AuthContext';
 import OrderSummary from './components/OrderSummary';
 import CheckoutSummary from './components/CheckoutSummary';
-import { usePayment } from './hooks/usePayment';
-import { lectureAPI } from '@/api/lecture';
+import {usePayment} from './hooks/usePayment';
+import {lectureAPI} from '@/api/lecture';
 import {getEnv} from "@/utils/getEnv.ts";
 
 const Checkout = () => {

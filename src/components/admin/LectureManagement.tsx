@@ -17,33 +17,13 @@ const CourseManagement: React.FC = () => {
   // 임시 데이터
   const mockLectures: CourseType[] = [
     {
-      id: 1,
-      title: "React 완전정복 - 기초부터 실전까지",
-      description: "React의 핵심 개념과 실전 프로젝트를 통해 프론트엔드 개발을 마스터하세요.",
-      instructor: "김개발",
-      category: "프론트엔드",
-      thumbnailUrl: "https://via.placeholder.com/300x200?text=React+Lecture",
-      publishedAt: "2023-05-15",
-      status: "published"
-    },
-    {
-      id: 2,
-      title: "Python으로 시작하는 AI 개발",
-      description: "파이썬을 활용한 AI 개발의 기초부터 머신러닝, 딥러닝까지 한 번에 배워보세요.",
-      instructor: "이인공",
-      category: "AI",
-      thumbnailUrl: "https://via.placeholder.com/300x200?text=Python+AI",
-      publishedAt: "2023-06-20",
-      status: "published"
-    },
-    {
       id: 3,
-      title: "웹 성능 최적화 마스터클래스",
-      description: "느린 웹사이트를 빠르게 만드는 다양한 최적화 기법을 배워보세요.",
-      instructor: "박성능",
-      category: "웹개발",
-      thumbnailUrl: "https://via.placeholder.com/300x200?text=Web+Performance",
-      publishedAt: "2023-07-10",
+      title: "백엔드 아키텍처 완전정복",
+      description: "백엔드 아키텍처",
+      instructor: "정강사",
+      category: "백엔드",
+      thumbnailUrl: "https://aigongbu-lecture-files.s3.ap-northeast-2.amazonaws.com/thumbnails/tum.png",
+      publishedAt: "2025-06-02",
       status: "pending"
     },
   ];

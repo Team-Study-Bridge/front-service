@@ -114,7 +114,7 @@ const userInfo = tokenManager.getUserInfo();
 import { useAuthWithRedirect } from '@/contexts/AuthContext';
 
 const MyComponent = () => {
-  const { isAuthenticated, user, login, logout } = useAuthWithRedirect();
+  const { , user, login, logout } = useAuthWithRedirect();
   
   // 인증 상태에 따른 UI 렌더링
   return isAuthenticated ? <AuthenticatedUI user={user} /> : <LoginForm onLogin={login} />;
